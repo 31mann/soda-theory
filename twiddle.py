@@ -34,12 +34,36 @@ def tw_matrix(m):
     return matrix
 
 
-def main():
-    xn = mm.input_matrix()
+def inverse_tw_matrix(m):
+    twm1 = tw_matrix(m)
+    inv_matrix = []
+    for j in range(m):
+        row = []
+        for k in range(m):
+            value = twm1[j]
+            val = value[k]
+            new_value = val.conjugate()
+            row.append(new_value)
+        inv_matrix.append(row)
+    return inv_matrix
+
+
+def inverse_dft():
+    print("Enter the dft sequence ---")
+    xk = mm.input_complex_matrix()
     twiddle_factor = int(input("Enter the twiddle factor for DFT calculation :"))
-    twm = tw_matrix(twiddle_factor)
-    # print(twm, len(twm))
-    mm.multiply_matrices(twm, xn)
+    twm1 = inverse_tw_matrix(twiddle_factor)
+    xn_1 = mm.multiply_matrices(twm1, xk)
+    xn = []
+    for i in range(twiddle_factor):
+        intm = xn_1[i.real]
+        intm1 = intm[0]
+        intm2 = intm1.real
+        intm3 = intm1.imag
+        real_value = intm2 * (1 / twiddle_factor)
+        complex_value = intm3 * (1 / twiddle_factor)
+        xn.append(complex(round(real_value), complex_value))
+    return xn
 
 
 

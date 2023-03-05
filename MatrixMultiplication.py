@@ -14,6 +14,23 @@ def input_matrix():
         matrix.append(row)
     return matrix
 
+# Function to take user input for a matrix
+def input_complex_matrix():
+    # take input for matrix dimensions
+    rows = int(input("Enter the number of rows: "))
+    cols = int(input("Enter the number of columns: "))
+
+    # initialize matrix with zeros
+    matrix = [[0 + 0j for j in range(cols)] for i in range(rows)]
+
+    # take input for each element in matrix
+    for i in range(rows):
+        for j in range(cols):
+            real_part = float(input(f"Enter the real part of element {i + 1},{j + 1}: "))
+            imag_part = float(input(f"Enter the imaginary part of element {i + 1},{j + 1}: "))
+            matrix[i][j] = complex(real_part, imag_part)
+    return matrix
+
 
 # Function to multiply two matrices
 def multiply_matrices(matrix1, matrix2):
