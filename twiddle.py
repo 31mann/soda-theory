@@ -63,7 +63,7 @@ def inverse_dft():
         real_value = intm2 * (1 / twiddle_factor)
         complex_value = intm3 * (1 / twiddle_factor)
         xn.append(complex(round(real_value), complex_value))
-    return xn
+    print(xn)
 
 
 
