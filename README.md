@@ -1,3 +1,2 @@
 # soda-theory
-hey, This repo is for the people who are interested in the Digital Signal Processing 
-(soda-theory have no meaning in general, I just got from a random name generator )
+The executable can be downloaded from this link - [ https://github.com/31mann/soda-theory/releases ]
